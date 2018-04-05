@@ -20,7 +20,7 @@ SUBDIRS =
 DIST_SUBDIRS =
 
 # the list of header files that belong to the library (to be installed later)
-AM_CFLAGS = $(DBUS_CFLAGS) $(DIRECT_CFLAGS) $(FUSION_CFLAGS) $(GLIB_CFLAGS) \
+AM_CFLAGS = $(DBUS_CFLAGS)  $(GLIB_CFLAGS) \
 	    -I$(PKG_CONFIG_SYSROOT_DIR)${includedir}/rdk/iarmbus \
 	    -I$(PKG_CONFIG_SYSROOT_DIR)${includedir}/rdk/iarmmgrs/power \
 	    -I$(PKG_CONFIG_SYSROOT_DIR)${includedir}/rdk/iarmmgrs-hal
@@ -28,7 +28,7 @@ AM_CFLAGS = $(DBUS_CFLAGS) $(DIRECT_CFLAGS) $(FUSION_CFLAGS) $(GLIB_CFLAGS) \
 bin_PROGRAMS = QueryPowerState
 
 QueryPowerState_SOURCES=IARM_Bus_CheckPowerStatus.c
-QueryPowerState_LDADD = $(DIRECT_LIBS) $(FUSION_LIBS) $(GLIB_LIBS) -lIARMBus $(DBUS_LIBS)
+QueryPowerState_LDADD =  $(GLIB_LIBS) -lIARMBus $(DBUS_LIBS)
 
 ## IPK generation Support
 iarm_query_powerstate_IPK_OUTDIR = $(abs_top_builddir)/ipk
